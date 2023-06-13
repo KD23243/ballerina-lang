@@ -90,16 +90,15 @@ public class RunCommand implements BLauncherCmd {
     @CommandLine.Option(names = "--generate-config-schema", hidden = true)
     private Boolean configSchemaGen;
 
+    @CommandLine.Option(names = "--profile", description = "profiles the jar", hidden = true)
+    private Boolean enableProfiler = false;
+    private String output;
+
     @CommandLine.Option(names = "--target-dir", description = "target directory path")
     private Path targetDir;
 
     @CommandLine.Option(names = "--enable-cache", description = "enable caches for the compilation", hidden = true)
     private Boolean enableCache;
-
-    @CommandLine.Option(names = "--profile", description = "profiles the jar", hidden = true)
-    private Boolean enableProfiler = false;
-
-    private String output;
 
     private static final String runCmd =
             "bal run [--debug <port>] <executable-jar> \n" +
